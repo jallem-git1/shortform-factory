@@ -1,0 +1,20 @@
+# 비밀키
+.env
+client_secret*.json
+token*.json
+
+# 생성물
+output/
+*.mp4
+*.mp3
+*.wav
+
+# 파이썬
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/

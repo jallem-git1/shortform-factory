@@ -45,6 +45,19 @@ shortform run <job_id> --from upload  # 업로드
 
 실패한 단계는 `--from <단계>`로 그 단계부터 다시 돌리면 됩니다.
 
+## 음성 (tts)
+
+`SHORTFORM_TTS_PROVIDER`로 제공자를 고릅니다. 장면마다 `audio/scene_NN.mp3`를 만들고, `narration.json`에 길이와 단어별 타임스탬프를 남깁니다.
+
+| 값 | 제공자 | 비용 | 타임스탬프 | 메모 |
+| --- | --- | --- | --- | --- |
+| `auto` (기본) | 키가 있으면 `google`, 없으면 `edge` | | | |
+| `google` | Google Cloud TTS Chirp 3 HD | 월 100만 자 무료 | 음절 수로 추정 | 운영 기본, `GOOGLE_TTS_API_KEY` |
+| `edge` | Microsoft Edge 읽어 주기 | 무료 | 단어 단위 | 비공식·상업 이용 허가 없음, 시험용 |
+| `elevenlabs` | ElevenLabs Multilingual v2 | 유료 구독 | 글자 단위 | `ELEVENLABS_API_KEY`, 목소리 ID 필수 |
+
+영상이 55초를 넘으면 `SHORTFORM_TTS_RATE=1.1`처럼 말 속도를 올리세요.
+
 ## 개발
 
 ```bash

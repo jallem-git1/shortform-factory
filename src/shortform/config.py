@@ -17,8 +17,10 @@ class Settings(BaseSettings):
     script_model: str = Field("claude-sonnet-5-5", alias="SHORTFORM_SCRIPT_MODEL")
 
     # 음성 (E)
-    tts_provider: str = Field("edge", alias="SHORTFORM_TTS_PROVIDER")
-    tts_voice: str = Field("ko-KR-SunHiNeural", alias="SHORTFORM_TTS_VOICE")
+    tts_provider: str = Field("auto", alias="SHORTFORM_TTS_PROVIDER")
+    tts_voice: str | None = Field(None, alias="SHORTFORM_TTS_VOICE")
+    tts_rate: float = Field(1.0, alias="SHORTFORM_TTS_RATE", description="말 속도 배율")
+    google_tts_api_key: SecretStr | None = Field(None, alias="GOOGLE_TTS_API_KEY")
     elevenlabs_api_key: SecretStr | None = Field(None, alias="ELEVENLABS_API_KEY")
 
     # 이미지 (F)

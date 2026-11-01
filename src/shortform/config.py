@@ -15,6 +15,7 @@ class Settings(BaseSettings):
     # 대본 (D)
     anthropic_api_key: SecretStr | None = Field(None, alias="ANTHROPIC_API_KEY")
     script_model: str = Field("claude-sonnet-5-5", alias="SHORTFORM_SCRIPT_MODEL")
+    topic_model: str = Field("claude-haiku-5-5", alias="SHORTFORM_TOPIC_MODEL")
 
     # 음성 (E)
     tts_provider: str = Field("edge", alias="SHORTFORM_TTS_PROVIDER")

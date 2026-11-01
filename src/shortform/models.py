@@ -13,7 +13,7 @@ from pathlib import Path
 
 from pydantic import BaseModel, Field
 
-# 포맷 가이드(작업 B) 기준: 45~55초, 원고 250~320자
+# 포맷 가이드(작업 B) 기준: 45~55초, 원고 250~320자 (공백 포함, 장면 사이는 공백 한 칸)
 TARGET_SECONDS = (45, 55)
 TARGET_CHARS = (250, 320)
 
@@ -57,7 +57,7 @@ class Script(BaseModel):
         return " ".join(s.narration for s in self.scenes)
 
     def length_warnings(self) -> list[str]:
-        n = len(self.full_text.replace(" ", ""))
+        n = len(self.full_text)
         lo, hi = TARGET_CHARS
         if n < lo:
             return [f"원고가 {n}자로 짧아요 (목표 {lo}~{hi}자)"]
